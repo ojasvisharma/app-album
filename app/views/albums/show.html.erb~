@@ -10,7 +10,6 @@
 </p>
 <%= image_tag @album.photo.url %>
  
-<%= link_to 'Back', albums_path %><%= link_to 'Add Photo to Album', new_album_picture_path(@album) %><br /><%= link_to 'Show Album', album_pictures_path(@album) %><br /><%= link_to 'Edit', edit_album_path(@album) %><br /><%= link_to 'Destroy', album_path(@album),
-              method: :delete,
-              data: { confirm: 'Are you sure?' } %>
+<%= link_to 'Back', albums_path %><br /><%= link_to 'Add Photo to Album', new_album_picture_path(@album) %><br /><%= link_to 'Show Album', album_pictures_path(@album) %><br /><%= link_to 'Edit', edit_album_path(@album) %><br />
+<%= button_to "delete", album, :method=>:delete, :class=>:destroy, data: { confirm: 'Are you sure?' } %>
 

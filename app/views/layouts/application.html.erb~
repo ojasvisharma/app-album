@@ -3,7 +3,7 @@
 <head>
   <title>Webalbums</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag: all, 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
@@ -20,7 +20,7 @@
 </p>
 <%= yield %>
 <p class='home'>
-Click for home<%= link_to "here", albums_path %>
+Click for <%= link_to "here", albums_path %> home
 </p>
 
 </body>
