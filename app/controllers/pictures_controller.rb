@@ -7,17 +7,16 @@ end
 def create
     @album = Album.find(params[:album_id])
     @picture = @album.pictures.create(picture_params)
+flash[:notice] = "Picture successfully created"
     redirect_to album_path(@album)
   end
   def destroy
     @album = Album.find(params[:album_id])
     @picture = @album.pictures.find(params[:id])
     @picture.destroy
-    debugger
     redirect_to album_path(@album)
   end
   def show
-   
    @picture = Picture.find(params[:id])
    end
 def index

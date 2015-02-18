@@ -3,11 +3,12 @@
 <head>
   <title>Webalbums</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag: all, 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 <h2><center>Welcome to Web Album</center></h2>
+<%= render 'layouts/messages' %>
 <p class='log'>
 
 <% if user_signed_in? %>
@@ -18,6 +19,7 @@
   <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
 <% end %>
 </p>
+
 <%= yield %>
 <p class='home'>
 Click for <%= link_to "here", albums_path %> home

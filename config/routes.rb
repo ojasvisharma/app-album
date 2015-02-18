@@ -7,16 +7,16 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root 'albums#new'
+get 'tags/:tag', to: 'albums#index', as: :tag
 
-resources :pictures
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
 
-  # Example resource route (maps HTTP verbs to controller actions automatically):
-     resources :albums 
+  # Example resource route (maps HTTP verbs to controller actions automatically): 
+
      resources :albums do
         resources :pictures
      end

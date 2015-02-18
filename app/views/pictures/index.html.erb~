@@ -1,7 +1,9 @@
 
 <% @picture.each do |f| %>
 <%= image_tag f.avatar.url %>
+<%= link_to 'Destroy', albums_path(@album), method: :delete, data: { confirm: 'Are you sure?' } %>
 
 <% end %>
 
 <td><%= link_to 'Back to Album', album_path(@album) %></td>
+

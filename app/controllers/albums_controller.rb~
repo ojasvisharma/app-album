@@ -1,4 +1,4 @@
-class AlbumsController < ApplicationController
+class AlbumsController < ApplicationController 
 def new
 @album =Album.new
 end
@@ -6,13 +6,21 @@ def create
 
   @album = current_user.albums.new(album_params)
   if @album.save
+flash[:alert] = "Album successfully created"
     redirect_to @album
   else
+flash[:notice] = "Album NOT created, Please provide valid inputs"
     render 'new'
-  end
+  end 
 end
+
+
 def index
-    @album = current_user.albums
+    if params[:tag]
+    @album = Album.tagged_with(params[:tag])
+  else
+    @album = Album.all
+  end
   end
 def show
 @album = Album.find(params[:id])
@@ -25,6 +33,7 @@ def destroy
       @album = Album.find(params[:id])
       @album.destroy
 
+      redirect_to albums_path
   end
 def update
   @album = Album.find(params[:id])
@@ -38,5 +47,5 @@ end
 end
 private
   def album_params
-    params.require(:album).permit(:title, :description, :photo)
+    params.require(:album).permit(:title, :description, :photo, :tag_list)
   end
