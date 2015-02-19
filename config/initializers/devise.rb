@@ -10,7 +10,7 @@ config.secret_key = '89579cc112bbb783edd7c0a3b7c4d246c09cab862ec41c5f3b1540e83a3
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class
   # with default "from" parameter.
-  config.mailer_sender = 'osharma.enbake@gmail.com'
+  config.mailer_sender = 'Album App'
 
   # Configure the class responsible to send e-mails.
   # config.mailer = 'Devise::Mailer'
