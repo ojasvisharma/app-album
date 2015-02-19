@@ -13,17 +13,31 @@
 
 <% if user_signed_in? %>
   You are: <strong><%= current_user.email %></strong>.
-  <%= link_to "Logout", destroy_user_session_path %>
+  <%= link_to "Logout", destroy_user_session_path %> | <%= link_to "Change your password", edit_user_registration_path %>
 <% else %>
   <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
   <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
 <% end %>
 </p>
+<p class='nav'>
+	<% if user_signed_in? %>
+	Users | <%= link_to "Albums", albums_path %> | <%= link_to 'Pictures', album_pictures_path(@album) %>
+	<% end %>
+</p>
+
 
 <%= yield %>
-<p class='home'>
-Click for <%= link_to "here", albums_path %> home
+
+
+<% if user_signed_in? %>
+<p class='nav'>
+Click <%= link_to "here", albums_path %> for home
 </p>
+<% else %>
+<p class='nav'>
+Created by: Ojasvi Sharma
+</p>
+<% end %>
 
 </body>
 </html>

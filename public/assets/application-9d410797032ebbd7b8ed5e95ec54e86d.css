@@ -10,30 +10,31 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require_tree .
- *= require_self
+
+
  */
+
 body {
   padding-top: 10px;
   padding-right: 10px;
   padding-left: 10px;
-  background-color: #E0E0D1;
+  background-color: #CC3300;
 }
 p.log {
   text-align: right;
   font-size: 100%; 
-  background-color: #F5F5F0;
-  color: #000000;
+  background-color: #668566;
+  color: #FFFFFF
 } 
 p.home {
   text-align: left;
   font-size: 100%; 
-  background-color: #F5F5F0;
-  color: #000000;
+  background-color: #668568;
+  color: #FFFFFF;
 }
 p.nav {
-  background-color: #C4C4C0;
-  color: #000000;	
+  background-color: #668568;
+  color: #FFFFFF;	
 }
 th {
    text-align: center;
