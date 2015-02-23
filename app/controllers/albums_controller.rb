@@ -3,7 +3,6 @@ def new
 @album =Album.new
 end
 def create
-
   @album = current_user.albums.new(album_params)
   if @album.save
 flash[:alert] = "Album successfully created"
@@ -24,7 +23,6 @@ def index
   end
 def show
 @album = Album.find(params[:id])
-
 end
 def edit
   @album = Album.find(params[:id])

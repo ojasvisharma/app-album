@@ -20,7 +20,6 @@ get 'tags/:tag', to: 'albums#index', as: :tag
      resources :albums do
         resources :pictures
      end
-
   # Example resource route with options:
   #   resources :products do
   #     member do
