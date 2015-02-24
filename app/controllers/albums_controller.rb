@@ -29,10 +29,10 @@ def edit
 end
 def destroy
       @album = Album.find(params[:id])
-      @album.destroy    
+      @album.destroy
       Album.restore(@album.id, recursive: true)
       redirect_to albums_path
-flash[:alert] = "Album successfully deleted"
+flash[:alert] = "Album successfully Restored"
   end
 def update
   @album = Album.find(params[:id])
