@@ -21,7 +21,7 @@
 </p>
 <p class='nav'>
 	<% if user_signed_in? %>
-	Users | <%= link_to "Albums", albums_path %> 
+	<%= link_to "View your Profile", current_user %> | <%= link_to "Albums", albums_path %> 
 	<% end %>
 </p>
 

@@ -16,7 +16,7 @@ get 'tags/:tag', to: 'albums#index', as: :tag
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
 
   # Example resource route (maps HTTP verbs to controller actions automatically): 
-
+resources :user
      resources :albums do
         resources :pictures
      end
