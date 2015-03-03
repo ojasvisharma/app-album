@@ -21,6 +21,7 @@ flash[:notice] = "Picture successfully created"
    end
 def index
   @picture = Picture.all
+  #@picture = Picture.find_by(album_id: params[:album_id])
 end
   private
     def picture_params

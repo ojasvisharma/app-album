@@ -3,12 +3,16 @@
   <% end %>
 <p>
   <strong>TITLE:</strong>
-  <%= @album.title %>
+  <%= @album.title %> 
 </p>
 
 <p>
   <strong>DESCRIPTION:</strong>
   <%= @album.description %>
+</p>
+<p>
+  <strong>Time Selected:</strong>
+  <%= @album.time_at %>
 </p>
 <%= image_tag @album.photo.url %>
  

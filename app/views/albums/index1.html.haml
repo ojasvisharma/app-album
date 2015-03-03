@@ -1,0 +1,17 @@
+%h1 Listing Albums
+= link_to 'New album', new_album_path
+%table
+  %tr
+    %th Title
+    %th Text
+  - @album.each do |album|
+    %tr
+      %td= album.title
+      %td= album.description
+      %td
+        = image_tag album.photo.url
+      %td
+        Tags: #{raw album.tag_list.map { |t| link_to t, tag_path(t) }.join(', ')}
+      %td= link_to 'Show', album_path(album)
+      %td= link_to 'Edit', edit_album_path(album)
+      %td= link_to 'destroy', album, :method=>:delete, :class=>:destroy, data: { confirm: 'Album will be restooored soon.' }, :remote=>true, :class=>delete_album

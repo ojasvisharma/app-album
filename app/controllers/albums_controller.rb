@@ -13,13 +13,12 @@ flash[:notice] = "Album NOT created, Please provide valid inputs"
   end 
 end
 
-
 def index
     if params[:tag]
     @album = Album.tagged_with(params[:tag])
   else
-    @album = Album.all
-  end
+    @album = Album.where(user_id:[current_user])
+  end 
   end
 def show
 @album = Album.find(params[:id])
@@ -30,10 +29,15 @@ end
 def destroy
       @album = Album.find(params[:id])
       @album.destroy
+      respond_to do |format|
+      format.html { redirect_to albums_url }
+      format.json { head :no_content }
+      format.js   { render :layout => false }
       Album.restore(@album.id, recursive: true)
-      redirect_to albums_path
+      
 flash[:alert] = "Album successfully Restored."
-  end
+end
+end
 def update
   @album = Album.find(params[:id])
 
@@ -46,5 +50,5 @@ end
 end
 private
   def album_params
-    params.require(:album).permit(:title, :description, :photo, :tag_list)
+    params.require(:album).permit(:title, :description, :photo, :tag_list, :time_at)
   end

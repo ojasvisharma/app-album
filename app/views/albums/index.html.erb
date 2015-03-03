@@ -14,8 +14,9 @@
        <td>Tags: <%= raw album.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %></td>
       <td><%= link_to 'Show', album_path(album) %>
       <td><%= link_to 'Edit', edit_album_path(album) %></td>
-      <td><%= button_to "delete", album, :method=>:delete, :class=>:destroy, data: { confirm: 'Album will be restored soon.' } %></td>
-
+      <td>
+      	<%= button_to "delete", album, :method=>:delete, :class=>:destroy, data: { confirm: 'Album will be restored soon.' } %></td>
+      	<td><%= link_to 'Destroy', album, method: :delete, data: { confirm: 'Are you sure?' }, :remote => true, :class => 'delete_album' %></td> 
     </tr>
   <% end %>
 </table>
