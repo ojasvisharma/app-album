@@ -7,7 +7,6 @@ end
 def create
     @album = Album.find(params[:album_id])
     @picture = @album.pictures.create(picture_params)
-    debugger
 flash[:notice] = "Picture successfully created"
     redirect_to album_path(@album)
   end
