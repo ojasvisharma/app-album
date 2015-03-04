@@ -7,21 +7,25 @@ end
 def create
     @album = Album.find(params[:album_id])
     @picture = @album.pictures.create(picture_params)
+    debugger
 flash[:notice] = "Picture successfully created"
     redirect_to album_path(@album)
   end
+  
   def destroy
     @album = Album.find(params[:album_id])
     @picture = @album.pictures.find(params[:id])
     @picture.destroy
     redirect_to album_path(@album)
   end
+  
   def show
-   @picture = Picture.find(params[:id])
+   @picture = Picture.all
    end
+   
 def index
-  @picture = Picture.all
-  #@picture = Picture.find_by(album_id: params[:album_id])
+   @picture = Picture.where(album_id: (params[:album_id]))
+   
 end
   private
     def picture_params

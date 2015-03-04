@@ -2,7 +2,7 @@ class Album < ActiveRecord::Base
 acts_as_paranoid :recover_dependent_associations => true
 belongs_to :user
 has_many :taggings
-has_many :pictures
+has_many :pictures, :dependent => :destroy
 acts_as_taggable
 has_attached_file :photo
 validates_attachment_presence :photo

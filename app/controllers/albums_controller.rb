@@ -33,7 +33,7 @@ def destroy
       format.html { redirect_to albums_url }
       format.json { head :no_content }
       format.js   { render :layout => false }
-      Album.restore(@album.id, recursive: true)
+      #Album.restore(@album.id, recursive: true)
       
 flash[:alert] = "Album successfully Restored."
 end
