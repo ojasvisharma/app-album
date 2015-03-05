@@ -2,6 +2,7 @@ class AlbumsController < ApplicationController
 def new
 @album =Album.new
 end
+
 def create
   @album = current_user.albums.new(album_params)
   if @album.save
@@ -19,13 +20,16 @@ def index
   else
     @album = Album.where(user_id:[current_user])
   end 
-  end
+end
+
 def show
 @album = Album.find(params[:id])
 end
+
 def edit
   @album = Album.find(params[:id])
 end
+
 def destroy
       @album = Album.find(params[:id])
       @album.destroy
@@ -34,10 +38,10 @@ def destroy
       format.json { head :no_content }
       format.js   { render :layout => false }
       #Album.restore(@album.id, recursive: true)
-      
-flash[:alert] = "Album successfully Restored."
+      flash[:alert] = "Album successfully Deleted."
+  end
 end
-end
+
 def update
   @album = Album.find(params[:id])
 
@@ -47,6 +51,7 @@ def update
     render 'edit'
   end
 end
+
 end
 private
   def album_params

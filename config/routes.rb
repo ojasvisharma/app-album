@@ -20,6 +20,7 @@ resources :user
      resources :albums do
         resources :pictures
      end
+resources :pictures
   # Example resource route with options:
   #   resources :products do
   #     member do
